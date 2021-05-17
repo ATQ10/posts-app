@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="letreroPosts pt-3 pb-3 text-center" *ngIf="Nposts">
+        <h2>{{Nposts}} Posts</h2>
+    </div>
+    <div class="row">
+        <div *ngFor="let post of posts;" class=" mb-5 col-sm-12 col-lg-6 col-md-6 col-12">
+            <div class="post">
+                <div class="titulo">
+                    Titulo: {{post.title}}
+                </div>
+                <div class="usuario text-right btn btn-block" (click)="verUsuario(post.userId)">
+                    Por:<i> {{usuarios[post.userId - 1].name}} ({{usuarios[post.userId - 1].username}})</i>
+                </div>
+                <div class="contenido">
+                    <b>Contenido:</b> {{post.body}}                     
+                </div>
+                <div class="comentarios btn btn-block" (click)="verComentarios(post.id)">
+                    Ver comentarios
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

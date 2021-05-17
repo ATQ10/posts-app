@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="regresar btn btn-block mt-3 col-lg-2 col-md-3 col-4 text-right" (click)="verPosts()">
+            Ver más Post
+        </div>
+    </div>
+    <div class="letreroPosts pt-3 pb-3 text-center">
+        <h2>Post #{{idPost}}</h2>
+    </div>
+    <div class="row">
+        <div *ngFor="let post of posts;">
+            <div class="row justify-content-center mb-5" *ngIf="post.id==idPost">
+                <div class="post col-11" *ngIf="post.id==idPost">
+                    <div class="titulo punteado">
+                        Titulo: {{post.title}}
+                    </div>
+                    <div class="usuario text-right btn btn-block" (click)="verUsuario(post.userId)">
+                        Por:<i> {{usuarios[post.userId - 1].name}} ({{usuarios[post.userId - 1].username}})</i>
+                    </div>
+                    <div class="contenido punteado">
+                        <b>Contenido:</b> {{post.body}}                     
+                    </div>
+                    <div class="letreroComentario pt-3 text-center">
+                        <h2>{{Ncomentarios}} Comentario(s)</h2>
+                    </div>
+                    <div class="comentarios-group mt-3">
+                        <div *ngIf="comentarios">
+                            <div class="comentario" *ngFor="let comentario of comentarios;">
+                            <div class="row">
+                                <div class="nombre col-lg-6 col-12">
+                                    <b>Nombre:</b> {{comentario.name}}
+                                </div>
+                                <div class="email col-lg-6 col-12 text-right">
+                                    <i>Email: {{comentario.email}}</i>
+                                </div>
+                            </div>
+                            <div class="cuerpo">
+                                <b>Dice:</b> {{comentario.body}}
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comentario text-center" *ngIf="Ncomentarios==0">
+                            no se encontraron comentarios                        
+                        </div> 
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>

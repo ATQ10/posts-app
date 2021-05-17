@@ -1,0 +1,75 @@
+<div class="container">
+    <div *ngFor="let usuario of usuarios;">
+        <div *ngIf="usuario.id==idUser" class="pt-5">
+        </div>
+        <div class="pt-0 m-0 row justify-content-center" *ngIf="usuario.id==idUser">
+            <div class="col-md-8 col-sm-8 col-xl-5 col-lg-6 contenidoInfo">
+                <div class="text-center pt-2 pb-4">
+                    <h1 class="text-light">INFO. De USUARIO</h1>
+                </div>
+                <div class="mx-sm-4">
+                    <span class="etiquetas">
+                        Nombre:
+                    </span>
+                    <div class="info">
+                        {{usuario.name}}
+                    </div>
+                </div>
+                <div class="mx-sm-4 pt-2">
+                    <span class="etiquetas">
+                        Nick:
+                    </span>
+                    <div class="info">
+                        {{usuario.username}}
+                    </div>               
+                </div>
+                <div class="mx-sm-4 pt-2">
+                    <span class="etiquetas">
+                        Email:
+                    </span>
+                    <div class="info">
+                        {{usuario.email}}
+                    </div>
+                </div>
+                <div class="mx-sm-4 pt-2 pb-4">
+                    <span class="etiquetas">
+                        Dirección:
+                    </span>
+                    <div class="info">
+                        <ul>
+                            <li>Street: {{usuario.address.street}}</li>
+                            <li>Suite: {{usuario.address.suite}}</li>
+                            <li>City: {{usuario.address.city}}</li>
+                            <li>Zipcode: {{usuario.address.zipcode}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="usuario.id==idUser">
+            <div class="letreroPosts pt-3 pb-3 text-center">
+                <h2>{{Nposts}} posts de <i>{{usuario.username}}</i></h2>
+            </div>
+            <div class="row">
+                <div *ngFor="let post of posts;" class=" mb-5 col-sm-12 col-lg-6 col-md-6 col-12">
+                    <div class="post">
+                        <div class="titulo">
+                            Titulo: {{post.title}}
+                        </div>
+                        <div class="contenido">
+                            <b>Contenido:</b> {{post.body}}                     
+                        </div>
+                        <div class="comentarios btn btn-block" (click)="verComentarios(post.id)">
+                            Ver comentarios
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="regresar btn btn-block mt-0 mb-5 col-lg-2 col-md-3 col-sm-5 text-right" (click)="verPosts()">
+            Ver más Post
+        </div>
+    </div>  
+</div>
