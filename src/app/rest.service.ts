@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { Post } from 'src/app/models/post';
@@ -10,8 +9,8 @@ import { Comentario } from 'src/app/models/comentario';
   providedIn: 'root'
 })
 export class RestService {
-  baseURLUsers = environment.apiURL + 'users/';
-  baseURLPosts = environment.apiURL + 'posts/';
+  baseURLUsers = 'https://jsonplaceholder.typicode.com/' + 'users/';
+  baseURLPosts = 'https://jsonplaceholder.typicode.com/' + 'posts/';
  
   constructor(private http: HttpClient) { }
 
